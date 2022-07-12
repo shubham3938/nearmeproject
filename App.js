@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
-
-import React from 'react';
 // import {View,Text,StyleSheet} from 'react-native';
-import {SignUp,MainScreen,SignIn,SideNavbar,ChatUser, WhatsappInt} from './components/routers/index'
-// import { createStackNavigator } from '@react-navigation/stack';
-
+import {
+  ChatUser,
+  MainScreen,
+  SideNavbar,
+  SignIn,
+  SignUp,
+  WhatsappInt,
+} from "./components/routers/index";
+import { StyleSheet, Text, View } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "./Context/authContext";
@@ -12,10 +15,13 @@ import { AuthContext } from "./Context/authContext";
 import { Provider as LoadingProvider } from "./state/Loading";
 import { LogBox } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
 // import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
+
+// import { createStackNavigator } from '@react-navigation/stack';
 
 LogBox.ignoreAllLogs();
 const Stack = createStackNavigator();
@@ -73,9 +79,17 @@ const App = () => {
         } catch (e) {}
         dispatch({ type: "LOGOUT" });
       },
-      signUp: () => {
-        // setUserToken('fgkj');
-        // setIsLoading(false);
+      signUp: async (foundUser) => {
+        const userToken = foundUser.token;
+        try {
+          await AsyncStorage.setItem("userToken", userToken);
+        } catch (e) {
+          console.log(e);
+        }
+        dispatch({
+          type: "LOGIN",
+          token: userToken,
+        });
       },
       getUser: () => {
         try {
