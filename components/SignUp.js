@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { TextInput, Button } from 'react-native-paper';
-import {SideNavbar} from '../components/SideNavbar';
 
+import { Button, TextInput } from 'react-native-paper';
+import { StyleSheet, Text, View } from 'react-native';
+
+import { ScrollView } from 'react-native-gesture-handler';
 import baseUrl from '../api/baseUrl';
+import {useState} from 'react';
 
 export default function SignUp({navigation}) {
 const [username,setUsername] = useState({data:"", error:false}); 
@@ -31,9 +31,6 @@ try
   
     // post method
     const result = await baseUrl.post("user/signup",body)
-    // get method
-    // const result = await baseUrl.get("user/signup",body)
-
     console.log(result.data)
     navigation.push('SideNavbar');
     alert("Your account successfully created.");
