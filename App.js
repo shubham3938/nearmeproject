@@ -4,9 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import React from 'react';
 import {View,Text,StyleSheet} from 'react-native';
-import {SignUp,MainScreen,SignIn,SideNavbar} from './components/routers/index'
+import {SignUp,MainScreen,SignIn,SideNavbar,ChatUser, WhatsappInt} from './components/routers/index'
 import { createStackNavigator } from '@react-navigation/stack';
-;
+
+
 
 const Stack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
@@ -21,6 +22,8 @@ return (
                       <Stack.Screen name="SideNavbar" component={SideNavbar}   
                       options={{headerShown:false}}
                       />
+
+
         </Stack.Navigator>
         </NavigationContainer>
 

@@ -1,13 +1,39 @@
 
-
-
-
-import React, { useState } from "react";
-import {  StyleSheet, Text, Pressable, View, Image,  } from "react-native";
+import * as React from 'react';
+import {useState} from 'react';
+import {  StyleSheet, Text, Pressable, View, Image, Linking } from "react-native";
 import { Button } from "react-native-paper";
-import {WhatsappInt} from "../components/WhatsappInt";
 
-const ChatUser = () => {
+const ChatUser = (props) => {
+
+  const [msg,setMsg]= useState("hello");
+  const [mobile,setMobile]= useState(props.phoneNo);
+
+
+ const openWhatsApp = () => {
+    // let msg = msgs;
+    // let mobile = "8766824323";
+    if (mobile) {
+      if (msg) {
+        let url =
+          "whatsapp://send?text=" +
+          msg +
+          "&phone=91" +
+          mobile;
+        Linking.openURL(url)
+          .then(data => {
+            console.log("WhatsApp Opened successfully " + data);
+          })
+          .catch(() => {
+            alert("Make sure WhatsApp installed on your device");
+          });
+      } else {
+        alert("Please enter message to send");
+      }
+    } else {
+      alert("Please enter mobile no");
+    }
+  };
 
   return (
     <View style={styles.centeredView}>
@@ -37,7 +63,10 @@ const ChatUser = () => {
 
            <View style={{justifyContent:"center",backgroundColor:"white",borderRadius:10,padding:4}}>
             <Button style={{borderWidth:2,borderColor:"#CCE0FF",borderRadius:50}} 
-            onPress={() => {}} >
+             onPress={() =>{
+              openWhatsApp()
+            }}
+                 >
               Chat</Button>
           </View> 
           

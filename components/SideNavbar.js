@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { View, Text } from 'react-native';
 import HomeScreen from '../components/Home';
-import SettingsScreen from '../components/About';
+import SettingsScreen from './Profile';
 import GoogleMap from '../components/GoogleMap';
 import SignUp from './SignUp';
 import BottomNav from '../components/BottomNav';
@@ -50,7 +50,7 @@ function SideNavbar() {
             ),
           }}
         />
-        <Drawer.Screen name="About" component={SettingsScreen} 
+        <Drawer.Screen name="Profile" component={SettingsScreen} 
                   options={{
                     drawerIcon: ({ color, size }) => (
                       <MaterialCommunityIcons name="account" color={color} size={size} />

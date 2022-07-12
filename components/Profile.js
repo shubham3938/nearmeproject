@@ -1,19 +1,27 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useState,useEffect } from 'react';
 import { Text, View,StyleSheet,Image } from 'react-native';
 import { Button } from 'react-native-paper';
 import baseUrl from '../api/baseUrl';
 
-function About(){
+function Profile(){
     
     const [name,setName]= useState({data:"Shubham Shingare", error:false});
     const [email,setEmail]= useState({data:"shubhamshingare1999@gmail.com", error:false});
     const [mobile,setMobile]= useState({data:"8766824323", error:false});
-    const [password,setPassword]= useState({data:"shubham", error:false});
+    // const [password,setPassword]= useState({data:"shubham", error:false});
 //-----------------------------------
 
+
+//-----------------------------------
+useEffect(async() => {
+    
+    
+        // try {
+          const res = await baseUrl.get("user/about/62cab1a511bb098d76d2ddfb")
+          
     // setName({
-    //     data:"", 
+    //     data:"res.da", 
     //     error:false,
     // })
 
@@ -26,28 +34,16 @@ function About(){
     //     data:"", 
     //     error:false,
     // })
-
-//-----------------------------------
-
-    const onSubmitMethod = async (username_from_client,email_from_client,mobile_from_client,password_from_client) => {
+          console.log(res.data)
     
-        let body = {
-        name:username_from_client,
-        email:email_from_client,
-        phone:mobile_from_client,
-        password:password_from_client
-        }
-        console.log({body})
-    
-        try {
-          const result = await baseUrl.post("user/signup", body)
-          console.log(result.data)
-    
-        } catch (E) {
-          console.log(E)
-        }
-      }
+        // } catch (E) {
+        //   console.log(E)
+        // }
+      
+  },[]);
+  
 
+   
 //-----------------------------------
       
 
@@ -63,9 +59,9 @@ function About(){
                 <Text style={styles.aboutDataTitle}>Mobile  :</Text>
                 <Text style={styles.aboutDataValue}>{mobile.data}</Text>
 
-                <Button onPress={()=>{
+                {/* <Button onPress={()=>{
                     onSubmitMethod(name.data,email.data,mobile.data,password.data)
-                }}>Okk</Button>
+                }}>Okk</Button> */}
             </View>
         </View>
     )
@@ -109,7 +105,7 @@ const styles = StyleSheet.create({
 
 
 
-export default About
+export default Profile
 
 //========================================================================
 

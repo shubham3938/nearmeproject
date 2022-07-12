@@ -18,7 +18,7 @@ const onSubmitMethod = async(email_from_client,password_from_client) =>
         email:email_from_client.data,
         password:password_from_client.data
     }
-    console.log({body})
+    // console.log({body})
     try
     {
         //baseUrl = "http://www.facebook.com/api" +"/login"
@@ -28,8 +28,6 @@ const onSubmitMethod = async(email_from_client,password_from_client) =>
         navigation.push('SideNavbar')
         //show success in toast ;
         alert("Dear user","You've logged in successfully");
-
-        alert("You have login in successfully")
     }catch(E){
         console.log(E)
         alert("Dear user","Please enter correct email or password");

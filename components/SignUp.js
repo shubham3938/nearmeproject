@@ -35,9 +35,9 @@ try
     // const result = await baseUrl.get("user/signup",body)
 
     console.log(result.data)
+    navigation.push('SideNavbar');
+    alert("Your account successfully created.");
     
-    alert("Dear user","Your account successfully created.");
-    navigation.push('SideNavbar')
 }catch(E){
     //show Error in toast 
     alert("Dear user","Something went wrong with you.");

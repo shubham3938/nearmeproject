@@ -8,12 +8,12 @@ import {
   Linking,
 } from "react-native";
 
-export default class WhatsappInt extends Component {
+ class WhatsappInt extends Component {
   constructor(props) {
     super(props);
     this.state = {
       mobileNo: "",
-      message: ""
+      message: "hh"
     };
   }
   openWhatsApp = () => {

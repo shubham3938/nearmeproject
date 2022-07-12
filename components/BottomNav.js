@@ -3,7 +3,7 @@ import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Chatlist from '../components/Chatlist';
 import GoogleMap from '../components/GoogleMap';
-import About from '../components/About';
+import Profile from './Profile';
 import ChatUser from '../components/ChatUser';
 import ContactList from '../components/ContactList';
 
@@ -47,9 +47,9 @@ function BottomNav() {
                 }}
             />
            
-           <Tab.Screen name="About" component={About}
+           <Tab.Screen name="Profile" component={Profile}
                 options={{
-                    tabBarLabel: 'About',
+                    tabBarLabel: 'Profile',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="account" color={color} size={size} />
                     ),

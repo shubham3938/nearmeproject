@@ -66,12 +66,12 @@ export default function GoogleMap() {
         longitude: currentLongitude 
         // location: coordinates
       }
-      console.log('user location changed');
-     console.log(body);
+      // console.log('user location changed');
+    //  console.log(body);
   
       try {
         const result = await baseUrl.patch("locats", body);
-        console.log(result.data)
+        // console.log(result.data)
   
       } catch (E) {
         console.log(E)
